@@ -8,13 +8,18 @@ const model = {
 };
 
 model.myDir.test = [];
-model.myDir.demo = [{ 0: { x: 0, y: 0, str: "Hello" } }, { 1: { x: 1, y: 2, str: "World" } }];
+model.myDir.demo = [
+  { id: 0, x: 0, y: 0, str: "Hello" },
+  { id: 1, x: 1, y: 2, str: "World" },
+];
 
 let testkey = "test";
 
 const template = `
 <div class="app">
-  <div class="record" \${rec<=*myDir.myRecord[${testkey}]:id}></div>
+  <div class="record" \${rec<=*myDir[${testkey}]:id}>
+    \${rec.str}
+  </div>
 </div>
 `;
 
